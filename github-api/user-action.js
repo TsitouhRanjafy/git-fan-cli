@@ -13,7 +13,7 @@ const follow_or_unfollow_user = async (token, user_name, is_follow = true) => {
         })
 
         if (res.status == 401) {
-            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./index.js login"));
+            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./gfm.js login"));
             return false
         }
 

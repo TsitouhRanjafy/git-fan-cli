@@ -1,4 +1,4 @@
-import { fetch_code_verification, fetch_token } from "../github-api/oauth.js";
+import { fetch_code_d_authentification, fetch_token } from "../github-api/oauth.js";
 import inquirer from "inquirer";
 import { exec } from "node:child_process";
 import chalk from "chalk";
@@ -13,37 +13,37 @@ export default {
     },
     handler: async (argv) => {
         try {
-            const code_verification = await fetch_code_verification()
-            if (!code_verification) {
-                console.info(chalk.hex('#FFA500')("✖ login failed"))
+            const code_d_authentification = await fetch_code_d_authentification()
+            if (!code_d_authentification) {
+                console.info(chalk.hex('#FFA500')(" ✖ Echec de connexion"))
                 return
             }
             
             // redirection to navigator
-            console.log(chalk.bold('  authentification code:') + chalk.green.bold(code_verification.user_code))
-            const res = await confirm(`redirection à ${code_verification.verification_uri}`, 'redirection');
+            console.log(chalk.bold("  Votre code d'authentification:") + chalk.green.bold(code_d_authentification.user_code))
+            const res = await confirm(`Entrer le code pour vous authentifier, redirection à ${code_d_authentification.verification_uri} ?`, 'redirection');
             if (!res.redirection) {
-                console.info(chalk.hex('#FFA500')('✖ authentification annuler'));
+                console.info(chalk.hex('#FFA500')(' !Authentification annuler'));
                 return
             }
-            open_url(code_verification.verification_uri);
+            open_url(code_d_authentification.verification_uri);
             let authentified_confirmation = await confirm(`Avez-vous entrer le code ci-dessus`,'authentifier');
             while (!authentified_confirmation.authentifier) {
-                console.log(chalk.hex('#FFA500')('  !Entrer le code s\'il vous plait!'))
-                open_url(code_verification.verification_uri);
+                console.log(chalk.hex('#FFA500')('  !Entrer le code s\'il vous plait'))
+                open_url(code_d_authentification.verification_uri);
                 authentified_confirmation = await confirm(`Avez-vous entrer le code ci-dessus`,'authentifier')
             }
 
             // handle token
-            const token = await fetch_token(code_verification.device_code)
+            const token = await fetch_token(code_d_authentification.device_code)
             if (!token) {
-                console.info(chalk.hex('#FFA500')("✖ login failed"))
+                console.info(chalk.hex('#FFA500')("✖ Echec de connexion"))
                 return
             }
             set_env('my_token', token.access_token)
-            console.info(chalk.green("✔ login successfull"))
+            console.info(chalk.green("✔ Connexion avec succès"))
         } catch (error) {
-            console.error(chalk.hex('#FFA500')(" !Internal error, cmd: login "));
+            console.error(chalk.hex('#FFA500')("  !Internal error, cmd: connexion "));
             return;
         }
     },

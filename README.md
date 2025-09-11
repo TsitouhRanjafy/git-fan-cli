@@ -6,31 +6,36 @@ Git Follow Manager (gfm.js) est un outil en ligne de commande pour gérer facile
 
 - Windows
 
-```batch
-git clone git@github.com:TsitouhRanjafy/git-follow-manager.git
-cd git-follow-manager
-npm ci 
-```
-run `node index.js -v` 
+    ```batch
+    git clone git@github.com:TsitouhRanjafy/git-follow-manager.git
+    cd git-follow-manager
+    npm ci 
+    ```
+    
+    vérifier:   
+    ```bash
+    node index.js --version
+    ```
 
 - Linux / macOS 
 
-```shell
-git clone git@github.com:TsitouhRanjafy/git-follow-manager.git
-cd git-follow-manager
-npm ci
-chmod +x index.js
-```
+    ```shell
+    git clone git@github.com:TsitouhRanjafy/git-follow-manager.git
+    cd git-follow-manager
+    npm ci
+    chmod +x index.js
+    ```
 
 verify
 ```bash
 ./gfm.js -v
 ``` 
 
-## Utilisation
+## Utilisation  
+
 
 ```bash
-Usage: gfm.js <commande> [options]
+./gfm.js <commande> [options]
 ```
 
 | Commande                   | Description                                                           |
@@ -54,21 +59,37 @@ Usage: gfm.js <commande> [options]
 
 ## Exemple
 
-- désabonner automatiquement à tout l'utilisateur qui vous abonné mais pas en retour sauf quelque utilisateur
+- Demande de l'aide pour un command
 
-```bash
-./index.js auto-unfollow --ignore --json user.json
-```
+    ```bash
+    ./gfm.js auto-follow -h
+    ```
 
-exemple du fichier json
+- Exporter en json tout les utilisateurs que vous suivez mais pas retoure
 
-```json
-[
-    { "user_name" : "KiritoEM" },
-    { "user_name" : "DMikaia" },
-    { "user_name" : "marioralison" }
-]
-```
+    ```bash
+    ./gfm.js not-followed-back -e ./
+    ```
+    vous avez créer un fichier `not-followed-back.json`
+
+
+
+- Désabonner automatiquement à tout l'utilisateur qui vous abonné mais pas en retour sauf quelque utilisateur
+
+    json schema `user.json`
+
+    ```json
+    [
+        { "user_name" : "KiritoEM" },
+        { "user_name" : "DMikaia" },
+        { "user_name" : "marioralison" }
+    ]
+    ```
+
+    ```bash
+    ./gfm.js auto-unfollow --ignore --json user.json
+    ```
+
 
 
 ## Demo 

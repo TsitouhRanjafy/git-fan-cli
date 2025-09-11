@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-const fetch_code_verification = async () => {
+const fetch_code_d_authentification = async () => {
     try {
         const response = await fetch('https://github.com/login/device/code',{
             method: 'POST',
@@ -15,14 +15,14 @@ const fetch_code_verification = async () => {
         })
 
         if (response.status != 200) {
-            console.info(chalk.hex('#FFA500')(" !github api a un erreur"));
+            console.info(chalk.hex('#FFA500')("  !github api a un erreur"));
             return null
         }
         const data = await response.json()
 
         return Object(data)
     } catch (error) {
-        console.info(chalk.hex('#FFA500')(" !internal server error, cantact admin"));
+        console.info(chalk.hex('#FFA500')(" !internal server error, reference: fetch_code_d_authentification"));
         return null
     }
 }
@@ -53,13 +53,13 @@ const fetch_token = async (device_code) => {
 
         return Object(data)
     } catch (error) {
-        console.info(chalk.hex('#FFA500')(" !internal server error, cantact admin"));
+        console.info(chalk.hex('#FFA500')("  !internal server error, reference: fetch_token"));
         console.error(error)
         return null
     }
 }
 
 export {
-    fetch_code_verification,
+    fetch_code_d_authentification,
     fetch_token
 }
