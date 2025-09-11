@@ -14,7 +14,7 @@ Git Follow Manager (gfm.js) est un outil en ligne de commande pour gérer facile
     
     vérifier:   
     ```bash
-    node index.js --version
+    node gfm.js --version
     ```
 
 - Linux / macOS 
@@ -26,10 +26,10 @@ Git Follow Manager (gfm.js) est un outil en ligne de commande pour gérer facile
     chmod +x index.js
     ```
 
-verify
-```bash
-./gfm.js -v
-``` 
+    vérifier:   
+    ```bash
+    ./gfm.js --version
+    ``` 
 
 ## Utilisation  
 
