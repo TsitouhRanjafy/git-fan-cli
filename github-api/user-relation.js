@@ -13,7 +13,7 @@ const fetch_followers =  async (token, limite = 30, page = 1) => {
             }
         })
         if (res.status == 401) {
-            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./index.js login"));
+            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./gfm.js login"));
             return []
         }
         if (res.status != 200) {
@@ -46,7 +46,7 @@ const fetch_following = async (token, limite = 30, page = 1) => {
             }
         })
         if (res.status == 401) {
-            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./index.js login"));
+            console.info(chalk.hex('#FFA500')(" !Vous n'est pas authentifier, execute: ./gfm.js login"));
             return []
         }
         if (res.status != 200) {
