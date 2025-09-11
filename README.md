@@ -22,7 +22,10 @@ npm ci
 chmod +x index.js
 ```
 
-run `./index.js -v` 
+verify
+```bash
+./gfm.js -v
+``` 
 
 ## Utilisation
 
