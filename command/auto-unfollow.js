@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 
 export default {
     command: 'auto-unfollow',
-    description: 'Se désabonner tout les utilisateurs qui n\'est pas abonné à vous',
+    description: 'Se désabonner automatiquement aux utilisateurs qui n\'est pas abonné à vous',
     builder: (yargs) => {
         return yargs
             .option('ignore', {

@@ -4,7 +4,7 @@ import chalk from "chalk";
 
 export default {
     command: 'followers',
-    description: 'Affiche l\'utilisateurs qui vous suit',
+    description: 'Affiche les utilisateurs qui vous suivent.',
     builder: (yargs) => {
         return yargs
             .option('limite', {

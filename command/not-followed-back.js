@@ -6,7 +6,7 @@ import { create_file } from "../helper/library.js";
 
 export default {
     command: 'not-followed-back',
-    description: 'Afficher tout l\'utilisateur que vous avez suivie mais pas en retour',
+    description: 'Afficher les utilisateurs que vous avez suivis mais pas en retour',
         builder: (yargs) => {
         return yargs
             .option('export', {

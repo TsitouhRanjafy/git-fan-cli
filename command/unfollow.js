@@ -6,7 +6,7 @@ import ora from "ora";
 
 export default {
     command: 'unfollow',
-    description: 'Se désabonner à utilisateur\n',
+    description: 'Se désabonner à un ou plusieurs utilisateurs\n',
     builder: (yargs) => {
         return yargs
             .option('username', {

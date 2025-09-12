@@ -6,7 +6,7 @@ import ora from "ora";
 
 export default {
     command: 'follow',
-    description: 'S\'abonner à utilisateur',
+    description: 'S\'abonner à un ou plusieurs utilisateurs',
     builder: (yargs) => {
         return yargs
             .option('username', {

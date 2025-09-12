@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 
 export default {
     command: 'auto-follow',
-    description: 'S\'abonner tout les utilisateurs qui vous abonne',
+    description: 'S\'abonner automatiquement aux utilisateurs qui vous suivent',
         builder: (yargs) => {
         return yargs
             .option('ignore', {
